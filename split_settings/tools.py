@@ -89,7 +89,7 @@ def include(*args: str, **kwargs) -> None:  # noqa: WPS210, WPS231, C901
 
         # find files per pattern, raise an error if not found
         # (unless file is optional)
-        files_to_include = glob.glob(pattern)
+        files_to_include = sorted(glob.glob(pattern))
         if not files_to_include and not isinstance(conf_file, _Optional):
             raise IOError('No such file: {0}'.format(pattern))
 
